@@ -1,3 +1,6 @@
+using API_GroupProject.database;
+using API_GroupProject.Interface; 
+using Microsoft.AspNetCore.Cors;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,3 +26,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+System.Console.WriteLine("hello");
+// createtables.CreatePatiTable(); 
+//createtables.CreateAppointTable();
+createtables.CreateTheraTable();
