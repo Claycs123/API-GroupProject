@@ -25,7 +25,17 @@ namespace API_GroupProject.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"CREATE TABLE appointment(ApptID INTEGER PRIMARY KEY AUTO_INCREMENT, PatientID INTEGER FOREIGN KEY AUTO_INCREMENT, TherapistID INTEGER FOREIGN KEY AUTO_INCREMENT, Name TEXT FOREIGN KEY, Date TEXT, TimeSlot Text)";
+            string stm = @"CREATE TABLE appointment(ApptID INTEGER PRIMARY KEY AUTO_INCREMENT, Dates TEXT, TimeSlot TEXT, ServiceID INTEGER, PatientID INTEGER, TherapistID INTEGER,
+
+                                        FOREIGN KEY (ServiceID)
+                                        REFERENCES service (ServiceID),
+                                        
+                                        FOREIGN KEY (PatientID)
+                                        REFERENCES patients (PatientID),
+                                        
+                                        FOREIGN KEY (TherapistID)
+                                        REFERENCES therapist (TherapistID)
+                                    )";
 
             using var cmd = new MySqlCommand(stm, con);
 

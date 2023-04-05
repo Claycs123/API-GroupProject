@@ -29,4 +29,4 @@ app.Run();
 System.Console.WriteLine("hello");
 // createtables.CreatePatiTable(); 
 //createtables.CreateAppointTable();
-createtables.CreateTheraTable();
+//createtables.CreateTheraTable();
