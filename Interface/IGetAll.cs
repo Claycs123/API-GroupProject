@@ -1,8 +1,8 @@
 using API_GroupProject.Models;
 namespace API_GroupProject.Interface
 {
-    public interface Icreatetables
+    public interface IGetAll
     {
-           
+        public List<patients> GetPatients(); 
     }
 }

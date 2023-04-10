@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using API_GroupProject.Models;
 
 namespace API_GroupProject.Controllers
 {
@@ -20,9 +21,13 @@ namespace API_GroupProject.Controllers
 
         // GET: api/Patients/5
         [HttpGet("{patientid}")]
-        public string Get(int id)
+        public List<patients> Get()
         {
-            return "value";
+            List<patients> myPatients = new List<patients>();
+            patients patient = new patients(){PatientID = 1, Email = "hey", Name = "McLean", PhoneNumber = "205-232-2321", MedicalInfo = "no", Address = "325ElmsStreet"};
+            myPatients.Add(patient);
+            return myPatients;
+
         }
 
         // POST: api/Patients
