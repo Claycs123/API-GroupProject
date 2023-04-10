@@ -12,14 +12,14 @@ namespace API_GroupProject.Controllers
     public class ServicesController : ControllerBase
     {
         // GET: api/Services
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        // [HttpGet]
+        // public IEnumerable<string> Get()
+        // {
+        //     return new string[] { "value1", "value2" };
+        // }
 
         // GET: api/Services/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{serviceid}")]
         public string Get(int id)
         {
             return "value";
@@ -32,13 +32,13 @@ namespace API_GroupProject.Controllers
         }
 
         // PUT: api/Services/5
-        [HttpPut("{id}")]
+        [HttpPut("{serviceid}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/Services/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{serviceid}")]
         public void Delete(int id)
         {
         }

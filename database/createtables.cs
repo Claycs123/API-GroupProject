@@ -25,17 +25,17 @@ namespace API_GroupProject.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"CREATE TABLE appointment(ApptID INTEGER PRIMARY KEY AUTO_INCREMENT, Dates TEXT, TimeSlot TEXT, ServiceID INTEGER, PatientID INTEGER, TherapistID INTEGER,
+            string stm = @"CREATE TABLE appointment(ApptID INTEGER PRIMARY KEY AUTO_INCREMENT, Dates TEXT, TimeSlot TEXT, ServName VARCHAR(255), PatientID INTEGER, TheraName VARCHAR(255),
 
-                                        FOREIGN KEY (ServiceID)
-                                        REFERENCES service (ServiceID),
-                                        
-                                        FOREIGN KEY (PatientID)
-                                        REFERENCES patients (PatientID),
-                                        
-                                        FOREIGN KEY (TherapistID)
-                                        REFERENCES therapist (TherapistID)
-                                    )";
+                            FOREIGN KEY (ServName)
+                            REFERENCES service (ServName),
+                            
+                            FOREIGN KEY (PatientID)
+                            REFERENCES patients (PatientID),
+                            
+                            FOREIGN KEY (TheraName)
+                            REFERENCES therapist (TheraName)
+                        );";
 
             using var cmd = new MySqlCommand(stm, con);
 
@@ -49,7 +49,7 @@ namespace API_GroupProject.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"CREATE TABLE service(ServiceID INTEGER PRIMARY KEY AUTO_INCREMENT, Name TEXT, Description TEXT, Price TEXT)";
+            string stm = @"CREATE TABLE service(ServName VARCHAR(255) PRIMARY KEY, description TEXT, price DOUBLE)";
 
             using var cmd = new MySqlCommand(stm, con);
 
@@ -63,7 +63,7 @@ namespace API_GroupProject.database
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string stm = @"CREATE TABLE therapist(TherapistID INTEGER PRIMARY KEY AUTO_INCREMENT, Email TEXT, Name TEXT, PhoneNumber TEXT)";
+            string stm = @"CREATE TABLE therapist(TheraName VARCHAR(255) PRIMARY KEY, email TEXT, phonenumber TEXT)";
 
             using var cmd = new MySqlCommand(stm, con);
 
