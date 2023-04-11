@@ -71,29 +71,29 @@ namespace API_GroupProject.database
             cmd.ExecuteNonQuery(); 
         }
 
-        public patients CreatePatient(patients myPatient)
-        {
-            ConnectionString myConnection = new ConnectionString();
-            string cs = myConnection.cs;
-            using var con = new MySqlConnection(cs);
-            con.Open();
+        // public patients CreatePatient(patients myPatient)
+        // {
+        //     ConnectionString myConnection = new ConnectionString();
+        //     string cs = myConnection.cs;
+        //     using var con = new MySqlConnection(cs);
+        //     con.Open();
 
-            string stm = @"INSERT INTO patients(Email, Name, PhoneNumber, MedicalInfo, Address) VALUES(@Email, @Name, @PhoneNumber, @MedicalInfo, @Address)";
+        //     string stm = @"INSERT INTO patients(Email, Name, PhoneNumber, MedicalInfo, Address) VALUES(@Email, @Name, @PhoneNumber, @MedicalInfo, @Address)";
 
-            using var cmd = new MySqlCommand(stm,con);
+        //     using var cmd = new MySqlCommand(stm,con);
 
-            cmd.Parameters.AddWithValue("@Email", myPatient.Email); 
-            cmd.Parameters.AddWithValue("@Name", myPatient.Name);
-            cmd.Parameters.AddWithValue("@PhoneNumber", myPatient.PhoneNumber);
-            cmd.Parameters.AddWithValue("@MedicalInfo", myPatient.MedicalInfo);
-            cmd.Parameters.AddWithValue("@Address", myPatient.Address); 
+        //     cmd.Parameters.AddWithValue("@Email", myPatient.Email); 
+        //     cmd.Parameters.AddWithValue("@Name", myPatient.Name);
+        //     cmd.Parameters.AddWithValue("@PhoneNumber", myPatient.PhoneNumber);
+        //     cmd.Parameters.AddWithValue("@MedicalInfo", myPatient.MedicalInfo);
+        //     cmd.Parameters.AddWithValue("@Address", myPatient.Address); 
 
-            cmd.Prepare();
+        //     cmd.Prepare();
 
-            cmd.ExecuteNonQuery(); 
+        //     cmd.ExecuteNonQuery(); 
 
-            return myPatient;
-        }
+        //     return myPatient;
+        // }
 
 
     }

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using API_GroupProject.Models;
+using API_GroupProject.Interface;
+using API_GroupProject.database; 
 
 namespace API_GroupProject.Controllers
 {
@@ -21,25 +23,32 @@ namespace API_GroupProject.Controllers
 
         // GET: api/Patients/5
         [HttpGet("{patientid}")]
-        public List<patients> Get()
+        public List<patients> GetAll()
         {
-            List<patients> myPatients = new List<patients>();
-            patients patient = new patients(){PatientID = 1, Email = "hey", Name = "McLean", PhoneNumber = "205-232-2321", MedicalInfo = "no", Address = "325ElmsStreet"};
-            myPatients.Add(patient);
-            return myPatients;
+            List<patients> myPatients = new GetAll().GetPatients();
+            return myPatients; 
+            // List<patients> myPatients = new List<patients>();
+            // patients patient = new patients(){PatientID = 1, Email = "hey", Name = "McLean", PhoneNumber = "205-232-2321", MedicalInfo = "no", Address = "325ElmsStreet"};
+            // myPatients.Add(patient);
+            // return myPatients;
 
         }
 
-        // POST: api/Patients
+        // POST: api/Patients/5
         [HttpPost]
-        public void Post([FromBody] string value)
+        public patients Post([FromBody] patients myPatient)
         {
+            ICreateModels addPatient = new CreateModels();
+            addPatient.CreatePatient(myPatient);
+            return myPatient;
         }
 
         // PUT: api/Patients/5
-        [HttpPut("{patientid}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{patientid}/edit")]
+        public void EditPatient(int PatientID, [FromBody] patients myPatient)
         {
+            ICreateModels editinpatient = new CreateModels();
+            editinpatient.EditPatient(PatientID, myPatient);
         }
 
         // DELETE: api/Patients/5
