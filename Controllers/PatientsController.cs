@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using API_GroupProject.Models;
 using API_GroupProject.Interface;
 using API_GroupProject.database; 
@@ -22,8 +23,9 @@ namespace API_GroupProject.Controllers
         // }
 
         // GET: api/Patients/5
-        [HttpGet("{patientid}")]
-        public List<patients> GetAll()
+        [HttpGet(Name="GetPatients")]
+        // [EnableCors("")]
+        public List<patients> Get()
         {
             // List<patients> myPatients = new GetAll().GetPatients();
             // return myPatients; 
