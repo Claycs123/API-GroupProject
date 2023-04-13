@@ -25,12 +25,12 @@ namespace API_GroupProject.Controllers
         [HttpGet("{patientid}")]
         public List<patients> GetAll()
         {
-            List<patients> myPatients = new GetAll().GetPatients();
-            return myPatients; 
-            // List<patients> myPatients = new List<patients>();
-            // patients patient = new patients(){PatientID = 1, Email = "hey", Name = "McLean", PhoneNumber = "205-232-2321", MedicalInfo = "no", Address = "325ElmsStreet"};
-            // myPatients.Add(patient);
-            // return myPatients;
+            // List<patients> myPatients = new GetAll().GetPatients();
+            // return myPatients; 
+            List<patients> myPatients = new List<patients>();
+            patients patient = new patients(){PatientID = 1, Email = "hey", Name = "McLean", PhoneNumber = "205-232-2321", MedicalInfo = "no", Address = "325ElmsStreet"};
+            myPatients.Add(patient);
+            return myPatients;
 
         }
 
