@@ -49,5 +49,30 @@ namespace API_GroupProject.database
 
             cmd.ExecuteNonQuery(); 
         }
+
+
+        public appointment CreateAppointment(appointment myAppointment)
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
+            con.Open();
+
+            string stm = @"INSERT INTO appointment(Dates, TimeSlot, ServName, PatientID, TheraName) VALUES(@Dates, @TimeSlot, @ServName, @PatientID, @TheraName)";
+
+            using var cmd = new MySqlCommand(stm,con);
+
+            cmd.Parameters.AddWithValue("@Dates", myAppointment.Dates); 
+            cmd.Parameters.AddWithValue("@TimeSlot", myAppointment.TimeSlot);
+            cmd.Parameters.AddWithValue("@ServName", myAppointment.ServName);
+            cmd.Parameters.AddWithValue("@PatientID", myAppointment.PatientID);
+            cmd.Parameters.AddWithValue("@TheraName", myAppointment.TheraName); 
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery(); 
+
+            return myAppointment;
+        }
     }
 }

@@ -4,5 +4,7 @@ namespace API_GroupProject.Interface
     public interface IGetAll
     {
         public List<patients> GetPatients(); 
+
+        public List<appointment> GetAppointments();
     }
 }

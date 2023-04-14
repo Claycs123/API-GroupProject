@@ -34,5 +34,40 @@ namespace API_GroupProject.database
             con.Close();
             return myPatients; 
         }
+    
+
+
+
+        public List<appointment> GetAppointments()
+        {
+            ConnectionString myConnection = new ConnectionString();
+                string cs = myConnection.cs;
+                using var con = new MySqlConnection(cs);
+                con.Open();
+                var myAppointments = new List<appointment>();
+                MySqlCommand command = new MySqlCommand("SELECT * FROM appointment;", con);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    
+                    while (reader.Read())
+                    {
+                        appointment newAppointment = new appointment();
+                        newAppointment.ApptID = int.Parse(reader["ApptID"].ToString()); 
+                        newAppointment.PatientID = int.Parse(reader["PatientID"].ToString());
+                        newAppointment.TheraName = reader["TheraName"].ToString();
+                        newAppointment.ServName = reader["ServName"].ToString();
+                        newAppointment.Dates = reader["Dates"].ToString();
+                        newAppointment.TimeSlot = reader["TimeSlot"].ToString(); 
+
+                        myAppointments.Add(newAppointment);
+
+                    }
+                    reader.Close();
+                }
+                con.Close();
+                return myAppointments; 
+        }
     }
+    
+
 }

@@ -5,5 +5,7 @@ namespace API_GroupProject.Interface
     {
        public patients CreatePatient(patients myPatient); 
        public void EditPatient(int PatientID, patients myPatient);
+
+        public appointment CreateAppointment(appointment myAppointment); 
     }
 }

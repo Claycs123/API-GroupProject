@@ -4,6 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
+using API_GroupProject.Models;
+using API_GroupProject.Interface;
+using API_GroupProject.database; 
 
 namespace API_GroupProject.Controllers
 {
@@ -19,16 +23,20 @@ namespace API_GroupProject.Controllers
         // }
 
         // GET: api/Appointments/5
-        [HttpGet("{appointmentId}")]
-        public string Get(int id)
+        [HttpGet(Name="GetAppointments")]
+        public List<appointment> Get()
         {
-            return "value";
+            List<appointment> myAppointments = new GetAll().GetAppointments();
+            return myAppointments; 
         }
 
         // POST: api/Appointments
         [HttpPost]
-        public void Post([FromBody] string value)
+        public appointment Post([FromBody] appointment myAppointment)
         {
+            ICreateModels addAppointment = new CreateModels();
+            addAppointment.CreateAppointment(myAppointment);
+            return myAppointment; 
         }
 
         // PUT: api/Appointments/5
