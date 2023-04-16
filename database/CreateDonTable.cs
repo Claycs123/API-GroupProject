@@ -1,3 +1,4 @@
+using MySql.Data.MySqlClient; 
 using API_GroupProject.Interface;
 using API_GroupProject.Models;
 
