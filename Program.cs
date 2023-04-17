@@ -39,5 +39,5 @@ app.MapControllers();
 
 app.Run();
 
-CreateDonTable.CreateDonationTable();
+// CreateDonTable.CreateDonationTable();
 
