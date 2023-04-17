@@ -34,7 +34,37 @@ namespace API_GroupProject.database
             con.Close();
             return myPatients; 
         }
-    
+
+
+        public patients GetPatient()
+        {
+            ConnectionString myConnection = new ConnectionString();
+            string cs = myConnection.cs;
+            using var con = new MySqlConnection(cs);
+            con.Open();
+            var myPatient = new patients();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM patients ORDER BY PatientID DESC LIMIT 1;", con);
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                
+                while (reader.Read())
+                {
+                    patients newPatient = new patients();
+                    newPatient.PatientID = int.Parse(reader["PatientID"].ToString()); 
+                    newPatient.Email = reader["Email"].ToString();
+                    newPatient.Name = reader["Name"].ToString();
+                    newPatient.PhoneNumber = reader["PhoneNumber"].ToString();
+                    newPatient.MedicalInfo = reader["MedicalInfo"].ToString();
+                    newPatient.Address = reader["Address"].ToString(); 
+
+                    myPatient = newPatient;
+
+                }
+                reader.Close();
+            }
+            con.Close();
+            return myPatient; 
+        }    
 
 
 

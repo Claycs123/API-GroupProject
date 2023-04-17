@@ -32,10 +32,17 @@ namespace API_GroupProject.Controllers
 
         // POST: api/Appointments
         [HttpPost]
-        public appointment Post([FromBody] appointment myAppointment)
+        public patientappointment Post([FromBody] patientappointment myAppointment)
         {
+            patients newPatient = new patients{PatientID=myAppointment.PatientID,Email=myAppointment.Email,Name=myAppointment.Name,Address=myAppointment.Address,MedicalInfo=myAppointment.MedicalInfo,PhoneNumber=myAppointment.PhoneNumber};
+            ICreateModels addPatient = new CreateModels();
+            addPatient.CreatePatient(newPatient);
+            patients tempPatient = new GetAll().GetPatient();
+            System.Console.WriteLine("hey");
+            appointment newAppt = new appointment{ApptID=myAppointment.ApptID,PatientID=tempPatient.PatientID,TheraName=myAppointment.TheraName,ServName=myAppointment.ServName,Dates=myAppointment.Dates,TimeSlot=myAppointment.TimeSlot};
+
             ICreateModels addAppointment = new CreateModels();
-            addAppointment.CreateAppointment(myAppointment);
+            addAppointment.CreateAppointment(newAppt);
             return myAppointment; 
         }
 
