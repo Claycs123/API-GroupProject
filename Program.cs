@@ -38,5 +38,6 @@ app.UseCors("OpenPolicy");
 app.MapControllers();
 
 app.Run();
-System.Console.WriteLine("hello");
+
+CreateDonTable.CreateDonationTable();
 
