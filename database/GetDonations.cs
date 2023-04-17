@@ -1,7 +1,11 @@
+using MySql.Data.MySqlClient; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_GroupProject.Models;
+using API_GroupProject.Controllers;
+
 
 namespace API_GroupProject.database
 {
@@ -23,7 +27,7 @@ namespace API_GroupProject.database
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
             while (rdr.Read()) {
-                Donation readDonations = new Donation() {Email = rdr.GetString(0), DonorName = rdr.GetString(1), MoneyDonated = rdr.GetInt(2), Date = rdr.GetString(3)};
+                Donation readDonations = new Donation() {Email = rdr.GetString(0), DonorName = rdr.GetString(1), MoneyDonated = rdr.GetInt32(2), Date = rdr.GetString(3)};
                 MyDonations.Add(readDonations);
             }
 

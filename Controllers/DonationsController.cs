@@ -19,7 +19,7 @@ namespace API_GroupProject.Controllers
         // GET: api/Donations/5
         [HttpGet(Name="GetDonations")]
         // [EnableCors("")]
-        public List<donations> Get()
+        public List<Donation> Get()
         {
             GetDonations myDonations = new GetDonations();
             return myDonations.GetAllDonations();
