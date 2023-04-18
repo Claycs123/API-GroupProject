@@ -33,7 +33,7 @@ namespace API_GroupProject.database
 
             cmd.Parameters.AddWithValue("@email", myDonations.Email);
             cmd.Parameters.AddWithValue("@donorname", myDonations.DonorName);
-            cmd.Parameters.AddWithValue("@money", myDonations.MoneyDonated);
+            cmd.Parameters.AddWithValue("@moneydonated", myDonations.MoneyDonated);
             cmd.Parameters.AddWithValue("@date", myDonations.Date);
 
             cmd.Prepare();
