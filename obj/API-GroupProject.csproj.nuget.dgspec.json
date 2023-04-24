@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mstandeffer/Documents/repos/mis321/API-GroupProject/API-GroupProject.csproj": {}
+    "/Users/claysuddarth/Documents/MIS321/GroupProject/API-GroupProject/API-GroupProject.csproj": {}
   },
   "projects": {
-    "/Users/mstandeffer/Documents/repos/mis321/API-GroupProject/API-GroupProject.csproj": {
+    "/Users/claysuddarth/Documents/MIS321/GroupProject/API-GroupProject/API-GroupProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mstandeffer/Documents/repos/mis321/API-GroupProject/API-GroupProject.csproj",
+        "projectUniqueName": "/Users/claysuddarth/Documents/MIS321/GroupProject/API-GroupProject/API-GroupProject.csproj",
         "projectName": "API-GroupProject",
-        "projectPath": "/Users/mstandeffer/Documents/repos/mis321/API-GroupProject/API-GroupProject.csproj",
-        "packagesPath": "/Users/mstandeffer/.nuget/packages/",
-        "outputPath": "/Users/mstandeffer/Documents/repos/mis321/API-GroupProject/obj/",
+        "projectPath": "/Users/claysuddarth/Documents/MIS321/GroupProject/API-GroupProject/API-GroupProject.csproj",
+        "packagesPath": "/Users/claysuddarth/.nuget/packages/",
+        "outputPath": "/Users/claysuddarth/Documents/MIS321/GroupProject/API-GroupProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/mstandeffer/.nuget/NuGet/NuGet.Config"
+          "/Users/claysuddarth/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
