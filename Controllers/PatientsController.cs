@@ -45,12 +45,14 @@ namespace API_GroupProject.Controllers
             return myPatient;
         }
 
-        // PUT: api/Patients/5
-        [HttpPut("{patientid}/edit")]
-        public void EditPatient(int PatientID, [FromBody] patients myPatient)
+        // PUT: api/Patients
+        [HttpPut("{PatientID}")]
+        public void Put(int PatientID, [FromBody] patients myPatient)
         {
+            System.Console.WriteLine(PatientID);
             ICreateModels editinpatient = new CreateModels();
-            editinpatient.EditPatient(PatientID, myPatient);
+            editinpatient.EditsPatient(PatientID, myPatient);
+            System.Console.WriteLine(PatientID);
         }
 
         // DELETE: api/Patients/5

@@ -29,7 +29,7 @@ namespace API_GroupProject.database
             return myPatient;
         }
 
-        public void EditPatient(int PatientID, patients myPatient)
+        public void EditsPatient(int PatientID, patients myPatient)
         {
             ConnectionString myConnection = new ConnectionString();
             string cs = myConnection.cs;
