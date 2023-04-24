@@ -20,7 +20,7 @@ namespace API_GroupProject.database
             cmd.ExecuteNonQuery(); 
         }
 
-        public void CreateDonation(Donation myDonations)
+        public Donation CreateDonation(Donation myDonation)
         {
             ConnectionString2 myConnection = new ConnectionString2();
             string cs = myConnection.cs;
@@ -31,14 +31,16 @@ namespace API_GroupProject.database
 
             using var cmd = new MySqlCommand(stm, con);
 
-            cmd.Parameters.AddWithValue("@email", myDonations.Email);
-            cmd.Parameters.AddWithValue("@donorname", myDonations.DonorName);
-            cmd.Parameters.AddWithValue("@moneydonated", myDonations.MoneyDonated);
-            // cmd.Parameters.AddWithValue("@date", myDonations.Date);
+            cmd.Parameters.AddWithValue("@email", myDonation.Email);
+            cmd.Parameters.AddWithValue("@donorname", myDonation.DonorName);
+            cmd.Parameters.AddWithValue("@moneydonated", myDonation.MoneyDonated);
+            cmd.Parameters.AddWithValue("@date", myDonation.Date);
 
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
+
+            return myDonation; 
         }
     }
 }

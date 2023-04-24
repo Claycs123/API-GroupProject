@@ -26,11 +26,18 @@ namespace API_GroupProject.Controllers
         }
 
         // POST: api/Donations/5
+        //[HttpPost]
+        // public void Post([FromBody] Donation value)
+        // {
+        //     CreateDonTable myDonations = new CreateDonTable();
+        //     myDonations.CreateDonation(value);
+        // }
         [HttpPost]
-        public void Post([FromBody] Donation value)
+        public Donation Post([FromBody] Donation myDonation)
         {
-            CreateDonTable myDonations = new CreateDonTable();
-            myDonations.CreateDonation(value);
+            ICreateDonation addDonation = new CreateDonTable();
+            addDonation.CreateDonation(myDonation);
+            return myDonation;
         }
 
         // PUT: api/Donations/5

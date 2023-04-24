@@ -4,6 +4,6 @@ namespace API_GroupProject.Interface
 {
     public interface ICreateDonation
     {
-        void CreateDonation(Donation myDonations);
+        public Donation CreateDonation(Donation myDonation);
     }
 }
