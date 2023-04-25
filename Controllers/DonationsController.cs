@@ -37,6 +37,8 @@ namespace API_GroupProject.Controllers
         {
             ICreateDonation addDonation = new CreateDonTable();
             addDonation.CreateDonation(myDonation);
+            System.Console.WriteLine(myDonation);
+            System.Console.WriteLine(addDonation);
             return myDonation;
         }
 
