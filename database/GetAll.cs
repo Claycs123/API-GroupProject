@@ -75,7 +75,7 @@ namespace API_GroupProject.database
                 using var con = new MySqlConnection(cs);
                 con.Open();
                 var myAppointments = new List<appointment>();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM appointment;", con);
+                MySqlCommand command = new MySqlCommand("SELECT * FROM appointment ORDER BY Dates ASC;", con);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     
